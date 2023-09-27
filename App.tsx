@@ -1,20 +1,38 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import { Dimensions, StyleSheet, Text, View } from "react-native";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+	// Tamanho do círculo em milímetros
+	const circleSizeMm = 15;
+
+	const deviceWidth = Dimensions.get("window").width;
+	const deviceScale = Dimensions.get("window").scale;
+
+	console.log("Scale", deviceScale);
+	console.log("Width", deviceWidth);
+
+	const circleSizePt = (circleSizeMm / 25.4) * deviceWidth;
+
+	return (
+		<View style={styles.container}>
+			<View
+				style={[
+					styles.circle,
+					{ width: circleSizePt, height: circleSizePt },
+				]}
+			/>
+		</View>
+	);
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+	container: {
+		flex: 1,
+		justifyContent: "center",
+		alignItems: "center",
+	},
+	circle: {
+		backgroundColor: "blue",
+		borderRadius: 999,
+	},
 });
