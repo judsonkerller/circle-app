@@ -6,7 +6,7 @@ export default function App() {
 	const deviceWidth = Dimensions.get("window").width;
 	const deviceScale = Dimensions.get("window").scale;
 
-	const circleSizePt = ((circleSizeMm / 25.4) * deviceWidth) / deviceScale;
+	const circleSizePt = ((circleSizeMm / 23.4) * deviceWidth) / deviceScale;
 
 	return (
 		<View style={styles.container}>
@@ -29,5 +29,11 @@ const styles = StyleSheet.create({
 	circle: {
 		backgroundColor: "blue",
 		borderRadius: 999,
+	},
+	borders: {
+		borderTopWidth: 1,
+		borderBottomWidth: 1,
+		borderTopColor: "red",
+		borderBottomColor: "red",
 	},
 });
